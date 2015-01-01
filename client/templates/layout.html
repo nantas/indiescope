@@ -1,0 +1,18 @@
+<template name="layout">
+    {{yield}}
+</template>
+
+<template name="gameList">
+    <div class="gameList">
+        <h1>Game List</h1>
+        {{#each games}}
+            {{> gameEntry}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="gameEntry">
+    <div class="gameEntry">
+        <h3><a href="{{url}}">{{title}}</a></h3>
+    </div>
+</template>
