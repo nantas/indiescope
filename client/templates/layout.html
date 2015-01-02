@@ -1,18 +1,32 @@
 <template name="layout">
-    {{yield}}
+    <div class="container">
+        {{> header}}
+<!--         {{> meteorErrors}}
+ -->        <div id="main" class="row-fluid">
+            {{> yield}}
+        </div>
+    </div>
 </template>
 
 <template name="gameList">
-    <div class="gameList">
+    <div class="gameList container">
         <h1>Game List</h1>
+        <ul class="small-block-grid-2">
         {{#each games}}
             {{> gameEntry}}
         {{/each}}
+        </ul>
     </div>
 </template>
 
 <template name="gameEntry">
-    <div class="gameEntry">
-        <h3><a href="{{url}}">{{title}}</a></h3>
-    </div>
+    <li class="gameEntry">
+        <a href="{{linkUrl}}">
+            <img class="game-icon pull-left img-thumbnail" src="http://placehold.it/80" alt="{{title}}">
+        </a>
+        <div class="game-entry-info pull-left">
+            <h4><a href="{{linkUrl}}">{{title}}</a></h4>
+            <p>{{headline}}</p>
+        </div>
+    </li>
 </template>
