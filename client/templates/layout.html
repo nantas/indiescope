@@ -1,8 +1,8 @@
 <template name="layout">
     <div class="container">
         {{> header}}
-<!--         {{> meteorErrors}}
- -->        <div id="main" class="row-fluid">
+        {{> errors}}
+        <div id="main" class="row-fluid">
             {{> yield}}
         </div>
     </div>
@@ -22,11 +22,26 @@
 <template name="gameEntry">
     <li class="gameEntry">
         <a href="{{linkUrl}}">
-            <img class="game-icon pull-left img-thumbnail" src="http://placehold.it/80" alt="{{title}}">
+            <img class="game-icon pull-left img-thumbnail" src="{{iconUrl}}" alt="{{title}}">
         </a>
         <div class="game-entry-info pull-left">
             <h4><a href="{{linkUrl}}">{{title}}</a></h4>
             <p>{{headline}}</p>
         </div>
     </li>
+</template>
+
+<template name="errors">
+    <div class="errors">
+        {{#each errors}}
+        {{> error}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="error">
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{message}}
+    </div>
 </template>

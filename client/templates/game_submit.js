@@ -14,10 +14,10 @@ Template.gameSubmit.events({
 
     Meteor.call('gameInsert', game, function(error, result) {
       if (error)
-        return Errors.throw(error.reason);
+        return throwError(error.reason);
 
       if (result.gameExists)
-        return Errors.throw('This link has already been posted');
+        return throwError('This link has already been posted');
 
       Router.go('gameList');
     });

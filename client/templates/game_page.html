@@ -1,28 +1,39 @@
 <template name="gamePage">
     <div class="row">
-        <img src="http://placehold.it/80" alt="{{title}}" class="pull-left img-thumbnail">
-        <div class="game-page-info">
-            <h2>{{title}}</h2>
-            <span>{{url}}</span>
+        <div class="col-lg-11">
+            <img src="{{iconUrl}}" alt="{{title}}" class="pull-left img-thumbnail">
+            <div class="game-page-info">
+                <h2>{{title}} {{#if currentUser}} <a href="{{editUrl}}">Edit</a> {{/if}}</h2>
+                <span><a href="{{url}}">Link to Game</a></span>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4">
-            <img src="http://placehold.it/266x400" alt="" class="img-thumbnail">
-        </div>
-        <div class="col-lg-4">
-            <img src="http://placehold.it/266x400" alt="" class="img-thumbnail">
-        </div>
-        <div class="col-lg-4">
-            <img src="http://placehold.it/266x400" alt="" class="img-thumbnail">
+        <div class="col-lg-11">
+            <h4>{{headline}}</h4>
         </div>
     </div>
     <div class="row">
-        <h3>Game Description</h3>
-        <p>{{desc}}</p>
+        {{#each screenshotUrls}}
+            {{> screenshotEntry}}
+        {{/each}}
     </div>
     <div class="row">
-        <h3>Editor Remark</h3>
-        <p>{{remark}}</p>
+        <div class="col-lg-11">
+            <h3>Game Description</h3>
+            <p>{{desc}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-11">
+            <h3>Editor Remark</h3>
+            <p>{{remark}}</p>
+        </div>
+    </div>
+</template>
+
+<template name="screenshotEntry">
+    <div class="col-lg-4">
+        <img src="{{this}}" alt="" class="img-thumbnail">
     </div>
 </template>
